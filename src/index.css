@@ -2,95 +2,132 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* CogniSense Design System
+   Color Palette:
+   - Coral: #f28482 → hsl(1, 81%, 73%)
+   - Sage: #84a59d → hsl(162, 15%, 58%)
+   - Peach: #f5cac3 → hsl(8, 67%, 86%)
+   - Cream: #f7ede2 → hsl(32, 55%, 93%)
+   - Gold: #f6bd60 → hsl(40, 89%, 67%)
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors */
+    --background: 32 55% 96%;
+    --foreground: 220 20% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 20% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 20% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Coral - Primary action color */
+    --primary: 1 81% 73%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Sage - Secondary/success color */
+    --secondary: 162 15% 58%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Peach - Muted backgrounds */
+    --muted: 8 67% 92%;
+    --muted-foreground: 220 15% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Gold - Accent/warning */
+    --accent: 40 89% 67%;
+    --accent-foreground: 220 20% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 32 30% 85%;
+    --input: 32 30% 85%;
+    --ring: 1 81% 73%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Custom semantic colors */
+    --coral: 1 81% 73%;
+    --sage: 162 15% 58%;
+    --peach: 8 67% 86%;
+    --cream: 32 55% 93%;
+    --gold: 40 89% 67%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Status colors */
+    --healthy: 145 63% 49%;
+    --average: 40 89% 67%;
+    --unhealthy: 0 84% 60%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Neon glow effects */
+    --glow-healthy: 0 100% 50% / 0.4;
+    --glow-average: 45 100% 50% / 0.4;
+    --glow-unhealthy: 0 100% 50% / 0.4;
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 20% 20%;
+    --sidebar-primary: 1 81% 73%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 8 67% 92%;
+    --sidebar-accent-foreground: 220 20% 20%;
+    --sidebar-border: 32 30% 85%;
+    --sidebar-ring: 1 81% 73%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 220 20% 10%;
+    --foreground: 32 55% 93%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 20% 14%;
+    --card-foreground: 32 55% 93%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 20% 14%;
+    --popover-foreground: 32 55% 93%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Coral - slightly adjusted for dark mode */
+    --primary: 1 81% 68%;
+    --primary-foreground: 220 20% 10%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Sage */
+    --secondary: 162 20% 50%;
+    --secondary-foreground: 220 20% 10%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Darker muted */
+    --muted: 220 20% 18%;
+    --muted-foreground: 32 30% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Gold */
+    --accent: 40 89% 60%;
+    --accent-foreground: 220 20% 10%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
+    --ring: 1 81% 68%;
+
+    /* Status colors - brighter for dark mode */
+    --healthy: 145 70% 55%;
+    --average: 40 95% 60%;
+    --unhealthy: 0 75% 55%;
+
+    /* Enhanced neon glow for dark mode */
+    --glow-healthy: 145 100% 50% / 0.6;
+    --glow-average: 40 100% 50% / 0.6;
+    --glow-unhealthy: 0 100% 50% / 0.6;
+
+    /* Sidebar dark */
+    --sidebar-background: 220 20% 12%;
+    --sidebar-foreground: 32 55% 93%;
+    --sidebar-primary: 1 81% 68%;
+    --sidebar-primary-foreground: 220 20% 10%;
+    --sidebar-accent: 220 20% 18%;
+    --sidebar-accent-foreground: 32 55% 93%;
+    --sidebar-border: 220 15% 25%;
+    --sidebar-ring: 1 81% 68%;
   }
 }
 
@@ -100,6 +137,154 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
+}
+
+@layer components {
+  /* Neon glow animations */
+  .glow-healthy {
+    box-shadow: 
+      0 0 20px hsl(var(--healthy) / 0.3),
+      0 0 40px hsl(var(--healthy) / 0.2),
+      0 0 60px hsl(var(--healthy) / 0.1);
+    animation: pulse-healthy 2s ease-in-out infinite;
+  }
+
+  .glow-average {
+    box-shadow: 
+      0 0 20px hsl(var(--average) / 0.3),
+      0 0 40px hsl(var(--average) / 0.2),
+      0 0 60px hsl(var(--average) / 0.1);
+    animation: pulse-average 2s ease-in-out infinite;
+  }
+
+  .glow-unhealthy {
+    box-shadow: 
+      0 0 20px hsl(var(--unhealthy) / 0.3),
+      0 0 40px hsl(var(--unhealthy) / 0.2),
+      0 0 60px hsl(var(--unhealthy) / 0.1);
+    animation: pulse-unhealthy 2s ease-in-out infinite;
+  }
+
+  /* Glass morphism cards */
+  .glass-card {
+    @apply backdrop-blur-md bg-card/80 border border-border/50;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--coral)) 0%, hsl(var(--gold)) 100%);
+  }
+
+  .gradient-secondary {
+    background: linear-gradient(135deg, hsl(var(--sage)) 0%, hsl(var(--peach)) 100%);
+  }
+
+  .gradient-subtle {
+    background: linear-gradient(180deg, hsl(var(--cream)) 0%, hsl(var(--background)) 100%);
+  }
+
+  /* Status indicators */
+  .status-healthy {
+    @apply bg-healthy text-white;
+  }
+
+  .status-average {
+    @apply bg-average text-foreground;
+  }
+
+  .status-unhealthy {
+    @apply bg-destructive text-white;
+  }
+
+  /* Attendance indicators */
+  .attendance-present {
+    @apply bg-secondary/20 border-secondary text-secondary;
+  }
+
+  .attendance-absent {
+    @apply bg-muted border-muted-foreground/30 text-muted-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-coral { background-color: hsl(var(--coral)); }
+  .bg-sage { background-color: hsl(var(--sage)); }
+  .bg-peach { background-color: hsl(var(--peach)); }
+  .bg-cream { background-color: hsl(var(--cream)); }
+  .bg-gold { background-color: hsl(var(--gold)); }
+  .bg-healthy { background-color: hsl(var(--healthy)); }
+  .bg-average { background-color: hsl(var(--average)); }
+  .bg-unhealthy { background-color: hsl(var(--unhealthy)); }
+
+  .text-coral { color: hsl(var(--coral)); }
+  .text-sage { color: hsl(var(--sage)); }
+  .text-peach { color: hsl(var(--peach)); }
+  .text-cream { color: hsl(var(--cream)); }
+  .text-gold { color: hsl(var(--gold)); }
+  .text-healthy { color: hsl(var(--healthy)); }
+  .text-average { color: hsl(var(--average)); }
+  .text-unhealthy { color: hsl(var(--unhealthy)); }
+
+  .border-coral { border-color: hsl(var(--coral)); }
+  .border-sage { border-color: hsl(var(--sage)); }
+  .border-healthy { border-color: hsl(var(--healthy)); }
+  .border-average { border-color: hsl(var(--average)); }
+  .border-unhealthy { border-color: hsl(var(--unhealthy)); }
+}
+
+@keyframes pulse-healthy {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px hsl(var(--healthy) / 0.3),
+      0 0 40px hsl(var(--healthy) / 0.2),
+      0 0 60px hsl(var(--healthy) / 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px hsl(var(--healthy) / 0.5),
+      0 0 60px hsl(var(--healthy) / 0.3),
+      0 0 90px hsl(var(--healthy) / 0.15);
+  }
+}
+
+@keyframes pulse-average {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px hsl(var(--average) / 0.3),
+      0 0 40px hsl(var(--average) / 0.2),
+      0 0 60px hsl(var(--average) / 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px hsl(var(--average) / 0.5),
+      0 0 60px hsl(var(--average) / 0.3),
+      0 0 90px hsl(var(--average) / 0.15);
+  }
+}
+
+@keyframes pulse-unhealthy {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px hsl(var(--unhealthy) / 0.3),
+      0 0 40px hsl(var(--unhealthy) / 0.2),
+      0 0 60px hsl(var(--unhealthy) / 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px hsl(var(--unhealthy) / 0.5),
+      0 0 60px hsl(var(--unhealthy) / 0.3),
+      0 0 90px hsl(var(--unhealthy) / 0.15);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotateX(0deg); }
+  50% { transform: translateY(-10px) rotateX(5deg); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }
