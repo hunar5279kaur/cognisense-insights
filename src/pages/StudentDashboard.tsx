@@ -1,5 +1,4 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import { 
   Bot, 
   GraduationCap, 
@@ -8,7 +7,6 @@ import {
   Clock, 
   CheckCircle2,
   XCircle,
-  User,
   Mail,
   LogOut
 } from "lucide-react";
@@ -18,6 +16,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Navbar } from "@/components/Navbar";
 import { Separator } from "@/components/ui/separator";
+import { Tagline } from "@/components/Tagline";
 
 interface UserData {
   name: string;
@@ -54,8 +53,6 @@ export default function StudentDashboard() {
     phone: "+1 234 567 8900",
   };
 
-  const [activeNav, setActiveNav] = useState<string | null>(null);
-
   const getInitials = (name: string) => {
     return name
       .split(" ")
@@ -65,8 +62,7 @@ export default function StudentDashboard() {
   };
 
   const handleNavClick = (path: string) => {
-    setActiveNav(path);
-    // For now, we'll show a toast or modal. In future, navigate to actual pages.
+    navigate(path);
   };
 
   const handleLogout = () => {
@@ -74,14 +70,14 @@ export default function StudentDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-20">
       {/* Navigation */}
       <Navbar>
         <div className="hidden md:flex items-center gap-2">
           {navItems.map((item) => (
             <Button
               key={item.path}
-              variant={activeNav === item.path ? "default" : "ghost"}
+              variant="ghost"
               size="sm"
               onClick={() => handleNavClick(item.path)}
               className="gap-2"
@@ -97,7 +93,7 @@ export default function StudentDashboard() {
       </Navbar>
 
       {/* Mobile Navigation */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-background border-t border-border z-50">
+      <div className="md:hidden fixed bottom-16 left-0 right-0 bg-background border-t border-border z-40">
         <div className="flex justify-around py-2">
           {navItems.map((item) => (
             <Button
@@ -114,7 +110,7 @@ export default function StudentDashboard() {
         </div>
       </div>
 
-      <main className="container mx-auto px-4 py-8 pb-24 md:pb-8">
+      <main className="container mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Profile Card */}
           <Card className="lg:col-span-1 animate-fade-in">
@@ -239,28 +235,11 @@ export default function StudentDashboard() {
                 </div>
               </CardContent>
             </Card>
-
-            {/* Quick Actions */}
-            <div className="grid md:grid-cols-4 gap-4">
-              {navItems.map((item, index) => (
-                <Card
-                  key={item.path}
-                  className="cursor-pointer hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1 animate-fade-in"
-                  style={{ animationDelay: `${0.4 + index * 0.1}s` }}
-                  onClick={() => handleNavClick(item.path)}
-                >
-                  <CardContent className="flex flex-col items-center justify-center p-6">
-                    <div className="p-3 rounded-full bg-primary/10 mb-3">
-                      <item.icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <span className="font-medium text-sm">{item.label}</span>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
           </div>
         </div>
       </main>
+
+      <Tagline />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Navbar } from "@/components/Navbar";
 import { Logo } from "@/components/Logo";
+import { Tagline } from "@/components/Tagline";
 
 type UserRole = "student" | "teacher" | null;
 
@@ -49,7 +50,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-20">
       <Navbar />
       
       <main className="container mx-auto px-4 py-12">
@@ -209,6 +210,8 @@ const Index = () => {
           </div>
         )}
       </main>
+
+      <Tagline />
     </div>
   );
 };
