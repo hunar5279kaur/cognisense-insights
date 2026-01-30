@@ -19,6 +19,7 @@ import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
 import { HealthStatusChart } from "@/components/HealthStatusChart";
 import { StudentPerformanceChart } from "@/components/StudentPerformanceChart";
+import { Tagline } from "@/components/Tagline";
 
 interface UserData {
   name: string;
@@ -95,7 +96,7 @@ export default function TeacherDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-20">
       {/* Navigation */}
       <Navbar>
         <Button variant="ghost" size="icon" onClick={handleLogout}>
@@ -225,6 +226,8 @@ export default function TeacherDashboard() {
           </div>
         </div>
       </main>
+
+      <Tagline />
     </div>
   );
 }

@@ -1,1 +1,7 @@
 project_id = "sriwyhpixlyzquxutfrb"
+
+[functions.chat]
+verify_jwt = false
+
+[functions.mongodb]
+verify_jwt = false

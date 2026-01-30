@@ -6,6 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
 import Index from "./pages/Index";
 import StudentDashboard from "./pages/StudentDashboard";
+import StudentGrades from "./pages/StudentGrades";
+import StudentAttendance from "./pages/StudentAttendance";
+import StudentHelp from "./pages/StudentHelp";
+import StudentChatbot from "./pages/StudentChatbot";
 import TeacherDashboard from "./pages/TeacherDashboard";
 import NotFound from "./pages/NotFound";
 
@@ -21,6 +25,10 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/student/dashboard" element={<StudentDashboard />} />
+            <Route path="/student/grades" element={<StudentGrades />} />
+            <Route path="/student/attendance" element={<StudentAttendance />} />
+            <Route path="/student/help" element={<StudentHelp />} />
+            <Route path="/student/chatbot" element={<StudentChatbot />} />
             <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
